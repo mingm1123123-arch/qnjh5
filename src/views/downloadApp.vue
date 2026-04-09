@@ -42,7 +42,7 @@ export default {
 
   data () {
     return {
-      androidUrl: 'https://txtxrxyhoss.ruixinit.top/package/hsjl.apk',
+      androidUrl: 'https://txtxrxyhoss.ruixinit.top/package/rxyh.apk',
       iosUrl: 'https://apps.apple.com/cn/app/%E9%98%BF%E5%90%89%E6%B3%B0/id1247380390',
       yybUrl: 'https://appgallery.huawei.com/app/C108266377',
       isIos: false,
