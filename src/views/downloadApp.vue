@@ -137,10 +137,21 @@ export default {
 .download_container{
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   position: relative;
   overflow: hidden;
   padding-bottom: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 30s linear infinite;
+  }
 }
 
 // 背景装饰
@@ -156,39 +167,51 @@ export default {
     position: absolute;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
 
     &.circle-1 {
-      width: 200px;
-      height: 200px;
-      top: -50px;
-      right: -50px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    &.circle-2 {
-      width: 150px;
-      height: 150px;
-      bottom: 100px;
-      left: -30px;
+      width: 220px;
+      height: 220px;
+      top: -60px;
+      right: -60px;
       animation: float 8s ease-in-out infinite;
     }
 
+    &.circle-2 {
+      width: 160px;
+      height: 160px;
+      bottom: 120px;
+      left: -40px;
+      animation: float 10s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
     &.circle-3 {
-      width: 100px;
-      height: 100px;
-      top: 40%;
-      right: 20px;
-      animation: float 7s ease-in-out infinite;
+      width: 120px;
+      height: 120px;
+      top: 45%;
+      right: 25px;
+      animation: float 9s ease-in-out infinite;
+      animation-delay: 1s;
     }
   }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-25px) scale(1.05);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -199,7 +222,9 @@ export default {
   justify-content: center;
   align-items: center;
   padding-top: 15vh;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 1;
 
   .logo-wrapper {
     text-align: center;
@@ -208,9 +233,10 @@ export default {
     .imageclasee{
       width: 35vw;
       height: (35*0.7147) vw;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      animation: logoFloat 3s ease-in-out infinite;
+      border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2),
+                  0 0 40px rgba(255, 255, 255, 0.15);
+      animation: logoFloat 4s ease-in-out infinite;
     }
   }
 }
@@ -220,32 +246,35 @@ export default {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 }
 
 // 信息卡片
 .info-card {
   margin: 0 20px 40px;
-  padding: 25px;
+  padding: 28px 25px;
   background: rgba(255, 255, 255, 0.98);
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08),
+              0 0 0 1px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
   text-align: center;
+  position: relative;
+  z-index: 1;
 
   .app-name {
     font-size: 32px;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 12px;
+    color: #2d3748;
+    margin-bottom: 14px;
     letter-spacing: 2px;
   }
 
   .app-desc {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.8;
   }
 }
 
@@ -255,8 +284,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  //padding: 0 20px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 1;
 
   .download-btn {
     width: 340px;
@@ -267,37 +297,14 @@ export default {
     background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
     border: none;
     color: white;
-    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.35),
+                0 0 0 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
       transform: scale(0.96);
-      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
-    }
-  }
-}
-
-// 特性展示
-.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 20px;
-  margin-top: 20px;
-
-  .feature-item {
-    text-align: center;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    flex: 1;
-    margin: 0 5px;
-
-    .feature-text {
-      margin-top: 8px;
-      color: white;
-      font-size: 12px;
-      font-weight: 500;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3),
+                  0 0 0 1px rgba(255, 255, 255, 0.3);
     }
   }
 }
