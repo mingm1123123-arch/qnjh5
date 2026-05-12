@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /messageList
+Allow: /privacyPolicy
+Allow: /agreement
+
+# 禁止爬取管理后台
+Disallow: /userManager
+Disallow: /userDetail
+Disallow: /loginLogList
+Disallow: /userList
+
+Sitemap: https://txrxyhh5.ruixinit.top/static/sitemap.xml

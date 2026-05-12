@@ -20,10 +20,35 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
+
+  /* 更新meta标签以优化SEO */
+  updateMetaTags(to)
+
   next()
 })
 
+/**
+ * 更新页面的meta标签
+ */
+function updateMetaTags(to) {
+  // 更新description
+  let metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription && to.meta.description) {
+    metaDescription.setAttribute('content', to.meta.description)
+  }
 
+  // 更新keywords
+  let metaKeywords = document.querySelector('meta[name="keywords"]')
+  if (metaKeywords && to.meta.keywords) {
+    metaKeywords.setAttribute('content', to.meta.keywords)
+  }
+
+  // 更新Open Graph标签
+  let ogTitle = document.querySelector('meta[property="og:title"]')
+  if (ogTitle && to.meta.title) {
+    ogTitle.setAttribute('content', to.meta.title)
+  }
+}
 
 Vue.prototype.$api = api
 
