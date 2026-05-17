@@ -30,12 +30,25 @@ export default {
             window.location.href = window.location.origin + '/#/userList'
           }
         } else {
-          Toast.loading({
-            message: '暂无权限',
+          Toast.fail({
+            message: res.data.message || '暂无权限',
             forbidClick: true
-          })
+          });
+          // 如果无权限，可以跳转到首页或其他页面
+          setTimeout(() => {
+            window.location.href = window.location.origin + '/#/'
+          }, 1500);
         }
-      }).catch(res => {
+      }).catch(err => {
+        console.error('获取用户类型失败:', err);
+        Toast.fail({
+          message: '网络请求失败，请稍后重试',
+          forbidClick: true
+        });
+        // 请求失败时跳转到首页
+        setTimeout(() => {
+          window.location.href = window.location.origin + '/#/'
+        }, 1500);
       })
     } else { // 首页
       window.location.href = window.location.origin + '/#/' + that.$route.query.pagepath
