@@ -1,5 +1,12 @@
 <template>
   <div class="download_container">
+    <!-- 装饰性背景元素 -->
+    <div class="bg-decoration">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+    </div>
+
     <!-- Logo区域 -->
     <div class="topimage">
       <div class="logo-wrapper">
@@ -130,11 +137,82 @@ export default {
 .download_container{
   width: 100vw;
   min-height: 100vh;
-  background: url(../assets/images/downloadback.png) no-repeat center center;
-  background-size: cover;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   position: relative;
   overflow: hidden;
   padding-bottom: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 30s linear infinite;
+  }
+}
+
+// 背景装饰
+.bg-decoration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+
+    &.circle-1 {
+      width: 220px;
+      height: 220px;
+      top: -60px;
+      right: -60px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    &.circle-2 {
+      width: 160px;
+      height: 160px;
+      bottom: 120px;
+      left: -40px;
+      animation: float 10s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    &.circle-3 {
+      width: 120px;
+      height: 120px;
+      top: 45%;
+      right: 25px;
+      animation: float 9s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.05);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 // Logo区域
@@ -156,8 +234,8 @@ export default {
       width: 35vw;
       height: (35*0.7147) vw;
       border-radius: 22px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
-                  0 0 40px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2),
+                  0 0 40px rgba(255, 255, 255, 0.15);
       animation: logoFloat 4s ease-in-out infinite;
     }
   }
@@ -178,8 +256,8 @@ export default {
   padding: 28px 25px;
   background: rgba(255, 255, 255, 0.98);
   border-radius: 22px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15),
-              0 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08),
+              0 0 0 1px rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
   text-align: center;
   position: relative;
@@ -219,13 +297,13 @@ export default {
     background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
     border: none;
     color: white;
-    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4),
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.35),
                 0 0 0 1px rgba(255, 255, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
       transform: scale(0.96);
-      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.35),
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3),
                   0 0 0 1px rgba(255, 255, 255, 0.3);
     }
   }
