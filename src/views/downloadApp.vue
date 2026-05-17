@@ -1,42 +1,39 @@
 <template>
   <div class="download_container">
-    <!-- 装饰性背景元素 -->
-    <div class="bg-decoration">
-      <div class="circle circle-1"></div>
-      <div class="circle circle-2"></div>
-      <div class="circle circle-3"></div>
-    </div>
-
-    <!-- Logo区域 -->
     <div class="topimage">
-      <div class="logo-wrapper">
-        <van-image
-          class="imageclasee"
-          src="https://txrxyhoss.ruixinit.top/logo.png"
-        />
-      </div>
+      <van-image class="imageclasee"
+        src="https://txrxyhoss.ruixinit.top/logo.png"
+      />
     </div>
-    <!-- 下载按钮 -->
-    <div class="download-section">
-      <van-button
-        class="download-btn"
-        size="large"
-        round
-        @click="download()"
-      >
-        <van-icon name="down" size="20" style="margin-right: 8px;" />
-        立即下载APP
-      </van-button>
+<!--    <div class="middlebut"  >-->
+<!--      <van-button class="btn" size="large" icon="https://ttjxoss.panlongshuju.com/default/ttjx.png" round type="info" @click="downloadYyb()">华为下载</van-button>-->
+<!--    </div>-->
+<!--    <div class="middlebut"  >-->
+<!--      <van-button class="btn" size="large" icon="https://tencentoss.yufan.xin/default/1000.webp" round type="info" @click="downloadXiaomi()">小米下载</van-button>-->
+<!--    </div>-->
+<!--    <div class="middlebut"  >-->
+<!--      <van-button class="btn" size="large" icon="https://tencentoss.yufan.xin/default/index1234.jpg" round type="info" @click="downloadVivo()">vivo下载</van-button>-->
+<!--    </div>-->
+    <div class="buttext">
+      <div class="txt">睿芯云汇</div>
     </div>
-    <!-- 应用信息卡片 -->
-    <div class="info-card">
-      <div class="app-name">睿芯云汇</div>
-      <div class="app-desc">本地下载,会被手机检测到APP未知来源的应用存在安全风险请谨慎安装,是因为部分手机厂商没有上架的原因</div>
+    <div class="middlebut" >
+      <van-button class="btn" size="large"  round type="info" @click="download()">本地下载</van-button>
     </div>
+    <div class="buttext">
+      <div class="txt">本地下载,会被手机检测到APP未知来源的应用存在安全风险请谨慎安装,是因为部分手机厂商没有上架的原因</div>
+<!--      <div class="txt text1">我们的APP已经经过腾讯手机管家安全测试,请大家放心使用</div>-->
+    </div>
+<!--    <div class="butimg">-->
+<!--      <van-image-->
+<!--        width="100%"-->
+<!--        height="100%"-->
+<!--        src="https://tencentoss.yufan.xin/app/20221122/safe1.jpg"-->
+<!--        @click="showImage()"-->
+<!--      />-->
+<!--    </div>-->
 
-
-
-  </div>
+</div>
 </template>
 
 <script>
@@ -135,170 +132,53 @@ export default {
 
 <style lang="less" scoped>
 .download_container{
-  width: 100vw;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 40px;
+    width:100vw;
+    height:100vh;
+    background: url(../assets/images/downloadback.png) no-repeat center center;
 }
-
-// 背景装饰
-.bg-decoration {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-
-    &.circle-1 {
-      width: 200px;
-      height: 200px;
-      top: -50px;
-      right: -50px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    &.circle-2 {
-      width: 150px;
-      height: 150px;
-      bottom: 100px;
-      left: -30px;
-      animation: float 8s ease-in-out infinite;
-    }
-
-    &.circle-3 {
-      width: 100px;
-      height: 100px;
-      top: 40%;
-      right: 20px;
-      animation: float 7s ease-in-out infinite;
-    }
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-// Logo区域
 .topimage{
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15vh;
-  margin-bottom: 30px;
-
-  .logo-wrapper {
-    text-align: center;
-    position: relative;
-
-    .imageclasee{
-      width: 35vw;
-      height: (35*0.7147) vw;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      animation: logoFloat 3s ease-in-out infinite;
-    }
+  padding-top: 10vh;
+  margin-bottom: 50px;
+  .imageclasee{
+    width: 40vw;
+    height: (40*0.7147) vw;
   }
 }
-
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-// 信息卡片
-.info-card {
-  margin: 0 20px 40px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
-  text-align: center;
-
-  .app-name {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-  }
-
-  .app-desc {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-  }
-}
-
-// 下载区域
-.download-section {
-  width: 100%;
+.middlebut{
+  width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
-  //padding: 0 20px;
-  margin-bottom: 30px;
-
-  .download-btn {
-    width: 340px;
-    max-width: 90%;
-    height: 56px;
-    font-size: 18px;
-    font-weight: bold;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-    border: none;
-    color: white;
-    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
-    transition: all 0.3s ease;
-
-    &:active {
-      transform: scale(0.96);
-      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
-    }
+  margin-top: 30px;
+  .btn{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
   }
 }
-
-// 特性展示
-.features {
+.buttext{
+  margin:0 auto;
+  margin-top: 30px;
+  width: 80vw;
+  font-size: 24px;
+  color: red;
   display: flex;
-  justify-content: space-around;
-  padding: 0 20px;
-  margin-top: 20px;
-
-  .feature-item {
-    text-align: center;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    flex: 1;
-    margin: 0 5px;
-
-    .feature-text {
-      margin-top: 8px;
-      color: white;
-      font-size: 12px;
-      font-weight: 500;
-    }
-  }
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+.text1{
+  margin-top: 15px;
+  color: black;
+}
+.butimg{
+  margin-top: 20px;
+  width: 400px;
+  height: 200px;
+}
+
 </style>
