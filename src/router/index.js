@@ -18,7 +18,7 @@ export default new Router({
       path: '/',
       name: 'downloadApp',
       meta: {
-        title: '睿芯云汇'
+        title: '拓界信讯'
       },
       component: () => import(/* webpackChunkName: "about" */'@/views/downloadApp.vue')
     },

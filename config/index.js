@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
       '/api/': {
       	// target: 'https://app.airnice.cn/jeecg-boot',
-        target: 'https://txrxyhapi.ruixinit.top/jeecg-boot',
+        target: 'https://tjxxapi.tuojieim.com/jeecg-boot',
         // target: 'http://localhost:12083/jeecg-boot/',
       	// target: 'http://localhost:12083/jeecg-boot/',
       	ws: true, //代理websockets

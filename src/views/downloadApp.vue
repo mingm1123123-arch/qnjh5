@@ -2,7 +2,7 @@
   <div class="download_container">
     <div class="topimage">
       <van-image class="imageclasee"
-        src="https://txrxyhoss.ruixinit.top/logo.png"
+        src="https://txtjxxoss.tuojieim.com/logo.png"
       />
     </div>
 <!--    <div class="middlebut"  >-->
@@ -15,7 +15,7 @@
 <!--      <van-button class="btn" size="large" icon="https://tencentoss.yufan.xin/default/index1234.jpg" round type="info" @click="downloadVivo()">vivo下载</van-button>-->
 <!--    </div>-->
     <div class="buttext">
-      <div class="txt">睿芯云汇</div>
+      <div class="txt">拓界信讯</div>
     </div>
     <div class="middlebut" >
       <van-button class="btn" size="large"  round type="info" @click="download()">本地下载</van-button>
@@ -42,7 +42,7 @@ export default {
 
   data () {
     return {
-      androidUrl: 'https://txrxyhoss.ruixinit.top/package/rxyh.apk',
+      androidUrl: 'https://txtjxxoss.tuojieim.com/package/tjxx.apk',
       iosUrl: 'https://apps.apple.com/cn/app/%E9%98%BF%E5%90%89%E6%B3%B0/id1247380390',
       yybUrl: 'https://appgallery.huawei.com/app/C108266377',
       isIos: false,
